@@ -2,6 +2,7 @@ package com.mustafaunlu.ecommerce_compose.data.api
 
 import com.mustafaunlu.ecommerce_compose.data.dto.Product
 import com.mustafaunlu.ecommerce_compose.data.dto.Products
+import com.mustafaunlu.ecommerce_compose.ui.uiData.Categorty
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -14,7 +15,7 @@ interface ApiService {
     @GET("products/{id}")
     suspend fun getSingleProductByIdFromApi(@Path("id") productId: Int): Product
     @GET("products/categories")
-    suspend fun getAllCategoriesListFromApi(): List<String>
+    suspend fun getAllCategoriesListFromApi(): List<Categorty>
     @GET("products/category/{categoryName}")
     suspend fun getProductsListByCategoryNameFromApi(@Path("categoryName") categoryName: String): Products
 }

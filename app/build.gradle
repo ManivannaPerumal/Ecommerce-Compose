@@ -14,7 +14,7 @@ android {
     defaultConfig {
         applicationId "com.mustafaunlu.ecommerce_compose"
         minSdk 24
-        targetSdk 31
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -140,6 +140,9 @@ dependencies {
 
     //Coil
     implementation "io.coil-kt:coil-compose:2.4.0"
+
+   // implementation "com.github.ihsanbal:LoggingInterceptor:3.1.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.11.0"
 }
 
 kapt {

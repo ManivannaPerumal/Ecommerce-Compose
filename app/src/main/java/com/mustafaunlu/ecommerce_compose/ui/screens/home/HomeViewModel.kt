@@ -11,6 +11,7 @@ import com.mustafaunlu.ecommerce_compose.domain.mapper.ProductListMapper
 import com.mustafaunlu.ecommerce_compose.domain.usecase.category.CategoryUseCase
 import com.mustafaunlu.ecommerce_compose.domain.usecase.product.GetAllProductsUseCase
 import com.mustafaunlu.ecommerce_compose.domain.usecase.product.SearchProductUseCase
+import com.mustafaunlu.ecommerce_compose.ui.uiData.Categorty
 import com.mustafaunlu.ecommerce_compose.ui.uiData.ProductUiData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -29,8 +30,8 @@ class HomeViewModel @Inject constructor(
     private val _products = MutableLiveData<ScreenState<List<ProductUiData>>>()
     val products: LiveData<ScreenState<List<ProductUiData>>> get() = _products
 
-    private val _categories = MutableLiveData<ScreenState<List<String>>>()
-    val categories: LiveData<ScreenState<List<String>>> get() = _categories
+    private val _categories = MutableLiveData<ScreenState<List<Categorty>>>()
+    val categories: LiveData<ScreenState<List<Categorty>>> get() = _categories
 
     init {
         getAllCategory()

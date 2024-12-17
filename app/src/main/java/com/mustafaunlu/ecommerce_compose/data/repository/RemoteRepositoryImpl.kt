@@ -9,6 +9,7 @@ import com.mustafaunlu.ecommerce_compose.common.NetworkResponseState
 import com.mustafaunlu.ecommerce_compose.data.dto.Product
 import com.mustafaunlu.ecommerce_compose.data.source.remote.RemoteDataSource
 import com.mustafaunlu.ecommerce_compose.di.coroutine.IoDispatcher
+import com.mustafaunlu.ecommerce_compose.ui.uiData.Categorty
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -52,7 +53,7 @@ class RemoteRepositoryImpl @Inject constructor(
         }.flowOn(ioDispatcher)
     }
 
-    override fun getAllCategoriesListFromApi(): Flow<NetworkResponseState<List<String>>> {
+    override fun getAllCategoriesListFromApi(): Flow<NetworkResponseState<List<Categorty>>> {
         return remoteDataSource.getAllCategoriesListFromApi().map {
             when (it) {
                 is NetworkResponseState.Loading -> NetworkResponseState.Loading

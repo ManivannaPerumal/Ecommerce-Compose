@@ -4,6 +4,7 @@ import com.mustafaunlu.ecommerce_compose.common.NetworkResponseState
 import com.mustafaunlu.ecommerce_compose.data.api.ApiService
 import com.mustafaunlu.ecommerce_compose.data.dto.Product
 import com.mustafaunlu.ecommerce_compose.data.dto.Products
+import com.mustafaunlu.ecommerce_compose.ui.uiData.Categorty
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -47,7 +48,7 @@ class RemoteDataSourceImpl @Inject constructor(
         }
     }
 
-    override fun getAllCategoriesListFromApi(): Flow<NetworkResponseState<List<String>>> {
+    override fun getAllCategoriesListFromApi(): Flow<NetworkResponseState<List<Categorty>>> {
         return flow {
             emit(NetworkResponseState.Loading)
             try {

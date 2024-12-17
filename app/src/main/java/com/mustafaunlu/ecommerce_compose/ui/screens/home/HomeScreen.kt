@@ -29,6 +29,7 @@ import com.mustafaunlu.ecommerce_compose.common.ScreenState
 import com.mustafaunlu.ecommerce_compose.ui.Error
 import com.mustafaunlu.ecommerce_compose.ui.Loading
 import com.mustafaunlu.ecommerce_compose.ui.theme.AppTheme
+import com.mustafaunlu.ecommerce_compose.ui.uiData.Categorty
 import com.mustafaunlu.ecommerce_compose.ui.uiData.ProductUiData
 
 @Composable
@@ -61,7 +62,7 @@ fun HomeRoute(
 @Composable
 fun HomeScreen(
     productState: ScreenState<List<ProductUiData>>?,
-    categoryState: ScreenState<List<String>>,
+    categoryState: ScreenState<List<Categorty>>,
     onProductClicked: (ProductUiData) -> Unit,
     onCategoryClicked: (String) -> Unit,
     onSearchTextChanged: (String) -> Unit,
@@ -100,7 +101,7 @@ fun HomeScreen(
 fun SuccessScreen(
     modifier: Modifier = Modifier,
     productUiData: List<ProductUiData>,
-    categoryUiData: List<String>,
+    categoryUiData: List<Categorty>,
     onProductClicked: (ProductUiData) -> Unit = {},
     onCategoryClicked: (String) -> Unit,
     onSearchTextChanged: (String) -> Unit,

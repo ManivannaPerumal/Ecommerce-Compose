@@ -5,6 +5,7 @@ import com.mustafaunlu.ecommerce_compose.common.Constants.BASE_URL
 import com.mustafaunlu.ecommerce_compose.common.TokenManager
 import com.mustafaunlu.ecommerce_compose.data.api.ApiService
 import com.mustafaunlu.ecommerce_compose.data.api.AuthInterceptor
+import com.mustafaunlu.ecommerce_compose.data.api.createHttpLoggingInterceptor
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -12,6 +13,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
@@ -39,11 +41,17 @@ object NetworkModule {
         return AuthInterceptor(tokenManager)
     }
 
+    @Provides
+    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+        return createHttpLoggingInterceptor()
+    }
+
     @Singleton
     @Provides
-    fun provideOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
+    fun provideOkHttpClient(authInterceptor: AuthInterceptor,httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(authInterceptor)
+            .addInterceptor(httpLoggingInterceptor)
             .build()
     }
 

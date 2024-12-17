@@ -3,6 +3,7 @@ package com.mustafaunlu.ecommerce_compose.domain.repository
 import com.mustafaunlu.ecommerce_compose.common.NetworkResponseState
 import com.mustafaunlu.ecommerce_compose.domain.entity.product.ProductEntity
 import com.mustafaunlu.ecommerce_compose.domain.entity.product.DetailProductEntity
+import com.mustafaunlu.ecommerce_compose.ui.uiData.Categorty
 import kotlinx.coroutines.flow.Flow
 
 interface RemoteRepository {
@@ -13,7 +14,7 @@ interface RemoteRepository {
 
     fun getProductsListBySearchFromApi(query: String): Flow<NetworkResponseState<List<ProductEntity>>>
 
-    fun getAllCategoriesListFromApi(): Flow<NetworkResponseState<List<String>>>
+    fun getAllCategoriesListFromApi(): Flow<NetworkResponseState<List<Categorty>>>
 
     fun getProductsListByCategoryNameFromApi(categoryName: String): Flow<NetworkResponseState<List<ProductEntity>>>
 }
